@@ -1,0 +1,126 @@
+<div class="container">
+  <div class="row">
+    <div class="offset-sm-2 col-sm-8">
+      <div class="card text-blank border-0">
+        <div class="card-body">
+          <div class="card-title">
+            <h4>Sign Up for free</h4>
+          </div>
+
+          <div class="card-text">
+            <form [formGroup] = "myForm">
+
+              <div class="row">
+                <div class="form-group col-sm-6">
+                  <input type="text" class="form-control" placeholder="First name" formControlName = "firstname">
+                </div>
+                <div class="form-group col-sm-6">
+                  <input type="text" class="form-control" placeholder="Last name" formControlName = "lastname">
+                </div>
+              </div>
+
+              <div class="alert alert-danger" *ngIf = "(!myForm.controls['firstname'].valid  || !myForm.controls['lastname'].valid) && 
+              (myForm.controls['firstname'].touched || myForm.controls['lastname'].touched)">
+                First name and last name is required
+              </div>
+
+
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Enter your email" formControlName = "email">
+                <small class=" form-text text-muted"> We will never share your text with any one else</small>
+              </div>
+
+              <div class="alert alert-danger" *ngIf = "!myForm.controls['email'].valid && myForm.controls['email'].touched">
+                A valid email Id is required.
+              </div>
+
+              <div class="form-group">
+                <input type="password" class="form-control" placeholder="password" formControlName = "password">
+              </div>
+
+              <div class="form-group mt-2">
+                <input type="password" class="form-control" placeholder="Confirm password" formControlName = "confirmpassword">
+              </div>
+
+              <div class="alert alert-danger" *ngIf = "!myForm.controls['password'].valid && myForm.controls['password'].touched">
+                A password must contains 8 characters.
+              </div>
+
+              <div class="text-center">
+                <button type="button" class="btn btn-block btn-warning col-sm-12" [disabled] = "!myForm.valid" (click) = "onSubmit(myForm)"  > Submit </button>
+
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <h1>Signup Form</h1>
+
+  <form #signUpForm = "ngForm">
+
+    <div class="form-group">
+      <label for="first_name">First Name</label>
+      <input type="text" class="form-control" required name = "first_name" [(ngModel)] = "first_name">
+
+    </div>
+
+    <div class="alert alert-danger"
+    *ngIf = "signUpForm.controls['first_name'].touched == true && signUpForm.controls['first_name'].invalid == true"
+    >
+    First name is required
+    </div>
+
+    <div class="form-group">
+      <label for = "last_name">Last Name</label>
+      <input type="text" class="form-control" name = "last_name" [(ngModel)] = "last_name">
+
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-success" (click) = "onSubmit(signUpForm)" 
+      [disabled] = "signUpForm.invalid == true"> Submit </button>
+
+    </div>
+
+  </form> -->
+
+
+</div>
+
