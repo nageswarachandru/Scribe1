@@ -1,0 +1,18 @@
+<div class="row mb-5">
+  <div class="offset-sm-1 col-sm-3">
+    <div class="card mt-4">
+      <!-- <img [src] = "user.photoURL" *ngIf="user.photoURL" height="100" width="100"> -->
+      <svg width="100" height="100" [data-jdenticon-value]="user.displayName" class="w-100 img-fluid card-img-top"></svg>
+      <div class="card-body">
+        <h4 class="card-title">{{user.displayName}}</h4>
+        <a routerLink = "/edit-profile/{{user.uid}}" class="btn btn-sm btn-primary">Edit profile</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-sm-7">
+    <app-create (postCreated) = "onPostCreated()"></app-create>
+    <app-post *ngFor = "let post of posts" [post] = "post" (onDelete) = "onDelete()"></app-post>
+  </div>
+</div>
